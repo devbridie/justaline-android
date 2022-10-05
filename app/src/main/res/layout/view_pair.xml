@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pairview_message_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/message" />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/anchor_ready_button"
             style="@style/ButtonText"
             android:layout_width="wrap_content"
@@ -101,13 +101,13 @@
                 android:id="@+id/arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow"
+                app:srcCompat="@drawable/ic_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ready_text"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription" />
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/message_secondary"
@@ -136,7 +136,7 @@
             app:layout_constraintTop_toBottomOf="@id/message"
             android:progressTint="@android:color/white"
             android:progressTintMode="src_in"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/close_button"
@@ -145,7 +145,7 @@
         android:background="@drawable/ripple_bg_borderless_oval"
         android:contentDescription="@string/content_description_back"
         android:padding="16dp"
-        android:src="@drawable/ic_close"
+        app:srcCompat="@drawable/ic_close"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

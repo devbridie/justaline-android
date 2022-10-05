@@ -14,13 +14,12 @@
 
 package com.arexperiments.justaline.view;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.WindowManager;
-
+import androidx.appcompat.app.AlertDialog;
 import com.arexperiments.justaline.R;
 
 /**

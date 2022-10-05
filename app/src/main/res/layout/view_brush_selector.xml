@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/brush_option_bg"
+            app:srcCompat="@drawable/brush_option_bg"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -32,7 +32,7 @@
             android:paddingTop="@dimen/brush_size_indicator_padding_top"
             android:scaleX="@dimen/brush_scale_large"
             android:scaleY="@dimen/brush_scale_large"
-            android:src="@drawable/ic_brush_size_option" />
+            app:srcCompat="@drawable/ic_brush_size_option" />
     </FrameLayout>
 
     <FrameLayout
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/brush_option_bg"
+            app:srcCompat="@drawable/brush_option_bg"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -62,7 +62,7 @@
             android:paddingTop="@dimen/brush_size_indicator_padding_top"
             android:scaleX="@dimen/brush_scale_medium"
             android:scaleY="@dimen/brush_scale_medium"
-            android:src="@drawable/ic_brush_size_option" />
+            app:srcCompat="@drawable/ic_brush_size_option" />
     </FrameLayout>
 
     <FrameLayout
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/brush_option_bg"
+            app:srcCompat="@drawable/brush_option_bg"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -93,7 +93,7 @@
             android:paddingTop="@dimen/brush_size_indicator_padding_top"
             android:scaleX="@dimen/brush_scale_small"
             android:scaleY="@dimen/brush_scale_small"
-            android:src="@drawable/ic_brush_size_option" />
+            app:srcCompat="@drawable/ic_brush_size_option" />
     </FrameLayout>
 
     <FrameLayout
@@ -112,7 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/brush_option_bg"
+            app:srcCompat="@drawable/brush_option_bg"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -125,7 +125,7 @@
             android:paddingTop="@dimen/brush_size_indicator_padding_top"
             android:scaleX="@dimen/brush_scale_small"
             android:scaleY="@dimen/brush_scale_small"
-            android:src="@drawable/ic_brush_size_option" />
+            app:srcCompat="@drawable/ic_brush_size_option" />
     </FrameLayout>
 
 </merge>

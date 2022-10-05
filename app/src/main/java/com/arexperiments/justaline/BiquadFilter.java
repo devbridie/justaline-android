@@ -14,8 +14,8 @@
 
 package com.arexperiments.justaline;
 
-import javax.vecmath.Vector3f;
 
+import javax.vecmath.Vector3f;
 
 /**
  * BiquadFilter is a object for easily lowpass filtering incomming values.

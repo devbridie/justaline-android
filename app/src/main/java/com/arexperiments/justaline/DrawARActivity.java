@@ -15,7 +15,6 @@
 package com.arexperiments.justaline;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -26,7 +25,7 @@ import android.opengl.Matrix;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -35,7 +34,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
 import com.arexperiments.justaline.analytics.AnalyticsEvents;
 import com.arexperiments.justaline.analytics.Fa;
 import com.arexperiments.justaline.model.Stroke;
@@ -66,7 +65,6 @@ import com.google.ar.core.TrackingState;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.NotTrackingException;
 import com.uncorkedstudios.android.view.recordablesurfaceview.RecordableSurfaceView;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,7 +75,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 

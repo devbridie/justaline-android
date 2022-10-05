@@ -17,7 +17,7 @@ package com.arexperiments.justaline.view;
 import android.animation.Animator;
 import android.content.Context;
 import android.os.PowerManager;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;

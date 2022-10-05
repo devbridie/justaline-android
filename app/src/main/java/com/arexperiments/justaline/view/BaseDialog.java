@@ -14,8 +14,8 @@
 
 package com.arexperiments.justaline.view;
 
-import android.app.Activity;
 import android.app.DialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Kat on 3/21/18.
@@ -23,7 +23,7 @@ import android.app.DialogFragment;
 
 public class BaseDialog extends DialogFragment {
 
-    public void show(Activity activity) {
+    public void show(AppCompatActivity activity) {
         // Show the dialog.
         show(activity.getFragmentManager(), null);
     }

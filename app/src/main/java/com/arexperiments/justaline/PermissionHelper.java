@@ -15,8 +15,6 @@
 package com.arexperiments.justaline;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,12 +22,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import com.arexperiments.justaline.analytics.AnalyticsEvents;
 import com.arexperiments.justaline.analytics.Fa;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +85,7 @@ public class PermissionHelper {
      * @param rationaleShown are we currently showing them rationale
      * @return A rationale dialog if one is shown or null if we are requesting the permissions
      */
-    public static AlertDialog requestRequiredPermissions(Activity activity,
+    public static AlertDialog requestRequiredPermissions(AppCompatActivity activity,
                                                          boolean rationaleShown) {
 
         if (shouldSendToSystemPrefsForRequiredPermissions(activity)) {
@@ -125,13 +123,13 @@ public class PermissionHelper {
      * @param activity calling activity which the AlertDialog is shown on (PermissionsActivity)
      * @return the dialog that is shown
      */
-    private static AlertDialog showRequiredPermissionRationale(final Activity activity) {
+    private static AlertDialog showRequiredPermissionRationale(final AppCompatActivity activity) {
         final AlertDialog
                 alertDialog = new AlertDialog.Builder(activity).create();
         alertDialog.setTitle(activity.getString(R.string.title_activity_permissions));
         alertDialog.setMessage(activity.getString(R.string.initial_permissions_required));
 
-        alertDialog.setButton(android.support.v7.app.AlertDialog.BUTTON_NEUTRAL,
+        alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_NEUTRAL,
                 activity.getString(R.string.ask_me_again),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -152,12 +150,12 @@ public class PermissionHelper {
      * @param activity the activity to show the dialog on (PermissionsActivity)
      * @return The Rationale dialog
      */
-    private static AlertDialog showRequiredPermissionsSystemDialog(final Activity activity) {
+    private static AlertDialog showRequiredPermissionsSystemDialog(final AppCompatActivity activity) {
         final AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
         alertDialog.setTitle(activity.getString(R.string.title_activity_permissions));
         alertDialog.setMessage(activity.getString(R.string.initial_permissions_required));
 
-        alertDialog.setButton(android.support.v7.app.AlertDialog.BUTTON_NEUTRAL,
+        alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_NEUTRAL,
                 activity.getString(R.string.open_system_permissions),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -176,7 +174,7 @@ public class PermissionHelper {
     /**
      * Check to see we have the storage permission and, if not, request it
      */
-    public static void requestStoragePermission(Activity activity, boolean rationaleShown) {
+    public static void requestStoragePermission(AppCompatActivity activity, boolean rationaleShown) {
 
         if (!rationaleShown && activity
                 .shouldShowRequestPermissionRationale(WRITE_EXTERNAL_STORAGE_PERMISSION)) {
@@ -203,11 +201,11 @@ public class PermissionHelper {
      *
      * @param activity the activity to show the rationale on (PlaybackActivity)
      */
-    private static void showStoragePermissionRationale(final Activity activity) {
+    private static void showStoragePermissionRationale(final AppCompatActivity activity) {
         final AlertDialog
                 alertDialog = new AlertDialog.Builder(activity).create();
         alertDialog.setMessage(activity.getString(R.string.storage_permission_rationale));
-        alertDialog.setButton(android.support.v7.app.AlertDialog.BUTTON_POSITIVE,
+        alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE,
                 activity.getString(R.string.ok),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -224,7 +222,7 @@ public class PermissionHelper {
      *
      * @param activity reference to activity that will call this method (PermissionsActivity)
      */
-    private static void openSystemPermissions(Activity activity) {
+    private static void openSystemPermissions(AppCompatActivity activity) {
         Intent intent = new Intent();
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         Uri uri = Uri.fromParts("package", activity.getPackageName(), null);
@@ -240,7 +238,7 @@ public class PermissionHelper {
      * @param activity reference to activity that we are checking for rationale needs
      * @return true if we should show a rationale before asking for permissions
      */
-    private static boolean shouldShowRationaleForRequiredPermissions(Activity activity) {
+    private static boolean shouldShowRationaleForRequiredPermissions(AppCompatActivity activity) {
 
         for (String permission : REQUIRED_PERMISSIONS) {
             if (activity.shouldShowRequestPermissionRationale(permission)) {
@@ -257,7 +255,7 @@ public class PermissionHelper {
      * @param activity reference to activity we are checking
      * @return true if we cannot ask for the necessary permissions
      */
-    private static boolean shouldSendToSystemPrefsForRequiredPermissions(Activity activity) {
+    private static boolean shouldSendToSystemPrefsForRequiredPermissions(AppCompatActivity activity) {
         int numTimesAsked = getSharedPreferences(activity)
                 .getInt(PREF_NUM_TIMES_ASKED_REQUIRED_PERMISSIONS, 0);
         if (numTimesAsked > 1) {

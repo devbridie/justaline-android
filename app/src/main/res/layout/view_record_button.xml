@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -12,7 +13,7 @@
             android:layout_gravity="center"
             android:scaleX="0"
             android:scaleY="0"
-            android:src="@drawable/bg_record_recording"
+            app:srcCompat="@drawable/bg_record_recording"
             tools:ignore="ContentDescription"/>
 
     <com.arexperiments.justaline.view.RecordButtonProgressBar
@@ -27,7 +28,7 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:paddingTop="2dp"
-            android:src="@drawable/ic_record_bg"
+            app:srcCompat="@drawable/ic_record_bg"
             tools:ignore="ContentDescription"/>
 
     <ImageView
@@ -35,7 +36,7 @@
             android:layout_width="13dp"
             android:layout_height="13dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_record_fg"
+            app:srcCompat="@drawable/ic_record_fg"
             tools:ignore="ContentDescription"/>
 
     <ImageView
@@ -45,7 +46,7 @@
             android:layout_gravity="center"
             android:scaleX="0"
             android:scaleY="0"
-            android:src="@drawable/ic_record_stop"
+            app:srcCompat="@drawable/ic_record_stop"
             tools:ignore="ContentDescription"/>
 
 </merge>

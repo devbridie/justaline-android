@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -15,7 +15,7 @@
             android:background="@drawable/ripple_bg_borderless_oval"
             android:contentDescription="@string/content_description_back"
             android:padding="16dp"
-            android:src="@drawable/ic_close"
+            app:srcCompat="@drawable/ic_close"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="40dp"
-                android:src="@drawable/just_a_line_about_icon"
+                app:srcCompat="@drawable/just_a_line_about_icon"
                 tools:ignore="ContentDescription" />
 
         <TextView
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/about_description"
         app:layout_constraintVertical_chainStyle="spread_inside">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_privacy_policy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,9 +115,9 @@
                 app:layout_constraintRight_toRightOf="@id/about_privacy_policy"
                 app:layout_constraintTop_toBottomOf="@id/about_privacy_policy" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_source_licenses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -150,9 +150,9 @@
                 app:layout_constraintRight_toRightOf="@id/about_source_licenses"
                 app:layout_constraintTop_toBottomOf="@id/about_source_licenses" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                 app:layout_constraintRight_toRightOf="@id/about_terms_of_service"
                 app:layout_constraintTop_toBottomOf="@id/about_terms_of_service" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>
@@ -203,7 +203,7 @@
         app:layout_constraintTop_toBottomOf="@id/layout_links"
         app:layout_constraintVertical_chainStyle="spread_inside">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_version"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -226,10 +226,10 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

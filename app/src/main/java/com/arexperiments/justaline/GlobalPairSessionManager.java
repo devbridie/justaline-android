@@ -14,17 +14,17 @@
 
 package com.arexperiments.justaline;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-
-import com.arexperiments.justaline.view.PairView;
-import com.google.ar.core.Anchor;
-
 import static com.arexperiments.justaline.PairSessionManager.PairedState.JOINING;
 import static com.arexperiments.justaline.PairSessionManager.PairedState.NOT_PAIRED;
 import static com.arexperiments.justaline.view.PairView.PairState.GLOBAL_CONNECTING;
 import static com.arexperiments.justaline.view.PairView.PairState.GLOBAL_RESOLVE_ERROR;
+
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+import com.arexperiments.justaline.view.PairView;
+import com.google.ar.core.Anchor;
 
 /**
  * Created by Kat on 4/10/18.
@@ -52,7 +52,7 @@ public class GlobalPairSessionManager extends PairSessionManager
     }
 
     @Override
-    protected void internalStartPairingSession(Activity activity) {
+    protected void internalStartPairingSession(AppCompatActivity activity) {
         mRoomDbManager.joinRoom(null, mUserUid, true, this, null);
     }
 
@@ -72,14 +72,14 @@ public class GlobalPairSessionManager extends PairSessionManager
         }
     }
 
-    public void joinGlobalRoom(Activity activity) {
+    public void joinGlobalRoom(AppCompatActivity activity) {
         if (mPairedOrPairing == NOT_PAIRED) {
             internalJoinGlobalRoom(activity);
         }
     }
 
     @Override
-    protected void internalJoinGlobalRoom(Activity activity) {
+    protected void internalJoinGlobalRoom(AppCompatActivity activity) {
         if (mPairingStateChangeListener != null) {
             mPairingStateChangeListener.onStateChange(PairView.PairState.LOOKING);
         }

@@ -16,13 +16,12 @@ package com.arexperiments.justaline.view;
 
 import android.animation.Animator;
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.accessibility.AccessibilityEvent;
 
 import com.arexperiments.justaline.AppSettings;
 import com.arexperiments.justaline.R;

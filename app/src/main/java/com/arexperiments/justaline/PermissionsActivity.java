@@ -14,14 +14,13 @@
 
 package com.arexperiments.justaline;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
 import com.arexperiments.justaline.analytics.Fa;
 import com.google.ar.core.ArCoreApk;
 

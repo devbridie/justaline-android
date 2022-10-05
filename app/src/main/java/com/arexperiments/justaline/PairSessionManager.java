@@ -14,6 +14,13 @@
 
 package com.arexperiments.justaline;
 
+import static com.arexperiments.justaline.view.PairView.PairState.HOST_CONNECTING;
+import static com.arexperiments.justaline.view.PairView.PairState.HOST_READY_AND_WAITING;
+import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_CONNECTED;
+import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_CONNECTING;
+import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_READY_AND_WAITING;
+import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_RESOLVE_ERROR;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -22,9 +29,9 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.arexperiments.justaline.analytics.AnalyticsEvents;
 import com.arexperiments.justaline.analytics.Fa;
 import com.arexperiments.justaline.model.RoomData;
@@ -42,18 +49,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static com.arexperiments.justaline.view.PairView.PairState.HOST_CONNECTING;
-import static com.arexperiments.justaline.view.PairView.PairState.HOST_READY_AND_WAITING;
-import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_CONNECTED;
-import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_CONNECTING;
-import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_READY_AND_WAITING;
-import static com.arexperiments.justaline.view.PairView.PairState.PARTNER_RESOLVE_ERROR;
 
 /**
  * Created by Kat on 4/4/18.
@@ -155,7 +155,7 @@ public class PairSessionManager
             @Override
             public void onFound(Message message) {
                 RoomData roomData = new RoomData(message);
-                Log.d(TAG, "Found message: " + message.getContent());
+                Log.d(TAG, "Found message: " + new String(message.getContent()));
 
                 boolean joinNewRoom = mRoomDbManager.shouldJoinReceivedRoom(roomData);
                 if (joinNewRoom) {
@@ -178,7 +178,7 @@ public class PairSessionManager
         };
     }
 
-    public void login(Activity activity) {
+    public void login(AppCompatActivity activity) {
 
         FirebaseUser currentUser = mFirebaseAuth.getCurrentUser();
         if (currentUser != null) {
@@ -191,7 +191,7 @@ public class PairSessionManager
 
     boolean mLogInInProgress = false;
 
-    void loginAnonymously(final Activity activity) {
+    void loginAnonymously(final AppCompatActivity activity) {
         mLogInInProgress = true;
         mFirebaseAuth.signInAnonymously()
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
@@ -240,7 +240,7 @@ public class PairSessionManager
      * Start a pairing session by creating an entry in the Firebase database and subscribing for
      * others' rooms
      */
-    void startPairingSession(Activity activity) {
+    void startPairingSession(AppCompatActivity activity) {
 
         mPairedOrPairing = PairedState.PAIRING;
 
@@ -303,7 +303,7 @@ public class PairSessionManager
     /**
      * Called only when online and userUid has been set
      */
-    protected void internalStartPairingSession(Activity activity) {
+    protected void internalStartPairingSession(AppCompatActivity activity) {
         if (mMessagesClient == null) {
             setupNearby(activity);
         }
@@ -318,7 +318,7 @@ public class PairSessionManager
     /**
      * Create an entry in the firebase database
      */
-    private void createRoom(final Activity activity) {
+    private void createRoom(final AppCompatActivity activity) {
         mRoomDbManager.createRoom(mUserUid, new RoomManager.StoreOperationListener() {
             @Override
             public void onRoomCreated(RoomData room, DatabaseError error) {
@@ -394,7 +394,7 @@ public class PairSessionManager
         }
     }
 
-    protected void internalJoinGlobalRoom(Activity activity) {
+    protected void internalJoinGlobalRoom(AppCompatActivity activity) {
         Fa.get().exception(new RuntimeException("Global room accessed from Production application"),
                 "Join Room pressed in production app");
     }
